@@ -1,33 +1,22 @@
 <script setup lang="ts">
-import PageHeader from '@/components/PageHeader.vue'
-import { useStore } from 'vuex'
-import {computed} from "vue";
-
-const store = useStore()
-
-const votes = computed(() => store.state.votes)
-
-const handleResetBtn = () => {
-  store.commit('reset')
-}
-
-const handleVoteBtn = () => {
-  store.commit('vote')
-}
+import CreatePoll from '@/components/CreatePoll.vue'
+import AnswerPoll from '@/components/AnswerPoll.vue'
+import ResultsPoll from '@/components/ResultsPoll.vue'
 </script>
 
 <template>
-  <header>
-    <div class="bg-amber-300">
-      <PageHeader msg="Hello world" />
-      <p>Votes: {{ votes }}</p>
-      <button @click="handleVoteBtn">Vote</button>
-      <button @click="handleResetBtn">Reset</button>
+  <header class="max-w-screen-xl mx-auto">
+    <div class="h-32 p-2 flex flex-col justify-center bg-amber-300">
+      <h1 class="text-3xl">A poll application</h1>
     </div>
   </header>
 
   <main>
-    <p>Main part</p>
+    <div class="border-2 border-black flex justify-between max-w-screen-xl mx-auto min-h-[400px]">
+      <CreatePoll />
+      <AnswerPoll />
+      <ResultsPoll />
+    </div>
   </main>
 </template>
 
