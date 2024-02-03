@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 flex flex-col">
+  <div class="p-4 flex flex-col w-full">
     <!-- Input for the question -->
     <input
       v-model="question"

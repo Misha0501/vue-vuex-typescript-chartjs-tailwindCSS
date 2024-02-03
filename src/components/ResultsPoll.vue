@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>
+  <div class="w-full">
     Results poll section
   </div>
 </template>
