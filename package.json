@@ -15,6 +15,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "chart.js": "^4.4.1",
     "vue": "^3.4.15",
     "vuex": "^4.0.2"
   },
