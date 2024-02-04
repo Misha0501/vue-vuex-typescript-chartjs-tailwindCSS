@@ -1,10 +1,11 @@
 <template>
-  <div>
+  <div class="flex flex-col justify-between">
     <canvas ref="chartRef"></canvas>
+    <p>Total votes: {{ totalVotes }}</p>
   </div>
 </template>
 <script setup lang="ts">
-import { onMounted, ref, watch, shallowRef } from 'vue'
+import { onMounted, ref, watch, shallowRef, computed } from 'vue'
 import { Chart, registerables } from 'chart.js'
 import { useStore } from 'vuex'
 
@@ -13,21 +14,22 @@ Chart.register(...registerables)
 const chartRef = ref<HTMLCanvasElement | null>(null)
 const myChart = shallowRef<Chart | null>(null)
 const store = useStore()
+const totalVotes = computed(() => store.getters.totalVotes)
 
 // Initialize an array to store colors persistently
 const backgroundColors = []
 
 const updateChartData = () => {
   const answers = store.state.answers
-  const labels = answers.map(a => a.text)
-  const data = answers.map(a => a.votes)
+  const labels = answers.map((a) => a.text)
+  const data = answers.map((a) => a.votes)
 
   // Only generate new colors if the array size has changed (new answers added)
   if (backgroundColors.length !== answers.length) {
     backgroundColors.length = 0 // Reset the array to ensure colors match new answers
     for (let i = 0; i < answers.length; i++) {
       backgroundColors.push(
-          `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.2)`
+        `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.2)`
       )
     }
   }
@@ -44,19 +46,21 @@ const updateChartData = () => {
         type: 'bar',
         data: {
           labels,
-          datasets: [{
-            label: 'Votes',
-            data,
-            backgroundColor: backgroundColors,
-          }],
+          datasets: [
+            {
+              label: 'Votes',
+              data,
+              backgroundColor: backgroundColors
+            }
+          ]
         },
         options: {
           scales: {
             y: {
-              beginAtZero: true,
-            },
-          },
-        },
+              beginAtZero: true
+            }
+          }
+        }
       })
     }
   }

@@ -15,6 +15,11 @@ export default createStore<State>({
     question: '',
     answers: []
   },
+  getters: {
+    totalVotes(state) {
+      return state.answers.reduce((acc, answer) => acc + answer.votes, 0)
+    }
+  },
   mutations: {
     reset(state) {
       state.question = ''
