@@ -15,7 +15,7 @@ npm run dev
 ### Build for Production
 
 ```sh
-npm run build-only
+npm run build
 ```
 
 ### Run End-to-End Tests with [Playwright](https://playwright.dev)
