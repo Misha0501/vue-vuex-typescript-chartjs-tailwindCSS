@@ -18,12 +18,16 @@ jobs:
             node-version: 18
         - name: Install dependencies
           run: npm install
+
         - name: Build
-          run: npm run build-only
+          run: npm run build
+
         - name: Install Playwright Browsers
           run: npx playwright install --with-deps
+
         - name: Run Playwright tests
           run: npx playwright test
+
         - uses: actions/upload-artifact@v3
           if: always()
           with:
