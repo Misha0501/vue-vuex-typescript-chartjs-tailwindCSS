@@ -1,7 +1,5 @@
 # Poll application 
 
-This template should help get you started developing with Vue 3 in Vite.
-
 ## Project Setup
 
 ```sh
@@ -14,10 +12,10 @@ npm install
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Build for Production
 
 ```sh
-npm run build
+npm run build-only
 ```
 
 ### Run End-to-End Tests with [Playwright](https://playwright.dev)
