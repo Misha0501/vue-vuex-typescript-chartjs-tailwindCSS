@@ -1,14 +1,14 @@
 <template>
   <div class="flex flex-col justify-between">
     <div>
-      <p v-if="isValidPoll" class="break-all mb-3">{{ question }}</p>
+      <p v-if="isValidPoll" class="break-all mb-3 text-center">{{ question }}</p>
       <canvas ref="chartRef"></canvas>
     </div>
     <p>Total votes: {{ totalVotes }}</p>
   </div>
 </template>
 <script setup lang="ts">
-import { onMounted, ref, watch, shallowRef, computed } from 'vue'
+import { computed, onMounted, ref, shallowRef, watch } from 'vue'
 import { Chart, registerables } from 'chart.js'
 import { useStore } from 'vuex'
 
@@ -60,6 +60,11 @@ const updateChartData = () => {
           ]
         },
         options: {
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
           scales: {
             y: {
               beginAtZero: true
