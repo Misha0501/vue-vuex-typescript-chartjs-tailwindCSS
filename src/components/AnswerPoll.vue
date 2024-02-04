@@ -36,6 +36,9 @@ const isValidPoll = computed(() => store.getters.isValidPoll)
 const question = computed(() => store.state.question)
 const answers = computed(() => store.state.answers)
 
+/**
+ * Submit the selected answer to the store
+ */
 const submitVote = () => {
   if (selectedAnswer.value) {
     store.commit('vote', selectedAnswer.value)

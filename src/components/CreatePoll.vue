@@ -55,7 +55,9 @@ const question = computed({
 const answers = computed(() => store.state.answers)
 const answer = ref('') // Local ref to store the answer input
 
-// Function to handle adding an answer
+/**
+ * Add the answer to the store
+ */
 const handleAddAnswer = () => {
   if (!answer.value) return // Do not add empty answers
 
@@ -63,13 +65,18 @@ const handleAddAnswer = () => {
   answer.value = '' // Clear input after adding
 }
 
-// Function to reset question and answers
+/**
+ * Reset the question and answers in the store
+ */
 const handleResetBtn = () => {
   store.commit('reset')
   answer.value = '' // Clear input after reset
 }
 
-// Function to remove an answer
+/**
+ * Remove an answer from the store
+ * @param index - Index of the answer to remove
+ */
 const removeAnswer = (index: number) => {
   store.commit('removeAnswer', index)
 }
