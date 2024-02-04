@@ -22,43 +22,15 @@ jobs:
         - name: Build
           run: npm run build
 
-#        - name: Install Playwright Browsers
-#          run: npx playwright install --with-deps
-#
-#        - name: Run Playwright tests
-#          run: npx playwright test
-#
-#        - uses: actions/upload-artifact@v3
-#          if: always()
-#          with:
-#            name: playwright-report
-#            path: playwright-report/
-#            retention-days: 30
+        - name: Install Playwright Browsers
+          run: npx playwright install --with-deps
 
-        # Upload the dist folder as an artifact for the next job
+        - name: Run Playwright tests
+          run: npx playwright test
+
         - uses: actions/upload-artifact@v3
+          if: always()
           with:
-            name: build-artifact
-            path: dist/
-
-
-  deploy:
-    needs: build-and-test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      # Download the build artifact produced by the build job
-      - uses: actions/download-artifact@v3
-        with:
-          name: build-artifact
-          path: dist/
-
-      - name: Install gh-pages
-        run: npm install -g gh-pages
-
-      - name: Deploy
-        run: gh-pages -d dist
+            name: playwright-report
+            path: playwright-report/
+            retention-days: 30
