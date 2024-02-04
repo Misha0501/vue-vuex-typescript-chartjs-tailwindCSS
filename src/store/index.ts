@@ -41,6 +41,6 @@ export default createStore<State>({
       if (answer) {
         answer.votes += 1
       }
-    }
+    },
   }
 })

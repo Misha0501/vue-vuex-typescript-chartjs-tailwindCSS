@@ -4,6 +4,7 @@
     <input
       v-model="question"
       placeholder="Type the question here"
+      :maxlength="INPUT_LIMIT"
       class="border border-black p-2 mb-4"
     />
     <div class="flex flex-col gap-2 mb-3">
@@ -13,6 +14,7 @@
           v-model="answer.text"
           @input="updateAnswer(index, $event.target.value)"
           class="border border-black p-2 flex-1"
+          :maxlength="INPUT_LIMIT"
         />
         <button class="bg-red-500 text-white py-2 px-4" @click="removeAnswer(answer.text)">
           Remove
@@ -24,6 +26,7 @@
           v-model="answer"
           placeholder="Type the answer here"
           class="border border-black p-2"
+          :maxlength="INPUT_LIMIT"
         />
         <button class="bg-gray-400 text-white py-2 px-4" @click="handleAddAnswer">Add</button>
       </div>
@@ -39,6 +42,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useStore } from 'vuex'
+import {INPUT_LIMIT} from "@/constants";
 
 const store = useStore()
 
@@ -53,6 +57,8 @@ const answer = ref('') // Local ref to store the answer input
 
 // Function to handle adding an answer
 const handleAddAnswer = () => {
+  if (!answer.value) return // Do not add empty answers
+
   store.commit('addAnswer', answer.value)
   answer.value = '' // Clear input after adding
 }
