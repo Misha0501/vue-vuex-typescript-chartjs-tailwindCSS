@@ -13,7 +13,7 @@ import ResultsPoll from '@/components/ResultsPoll.vue'
 
   <main>
     <div
-      class="grid auto-cols-fr grid-flow-col border-2 border-black max-w-screen-xl mx-auto min-h-[400px] px-6 py-12 gap-8"
+      class="grid auto-cols-fr lg:grid-flow-col border-2 border-black max-w-screen-xl mx-auto min-h-[400px] px-6 py-12 gap-8"
     >
       <CreatePoll />
       <AnswerPoll />
