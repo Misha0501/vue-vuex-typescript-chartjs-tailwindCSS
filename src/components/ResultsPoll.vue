@@ -4,7 +4,9 @@
       <p v-if="isValidPoll" class="break-all mb-3 text-center">{{ question }}</p>
       <canvas ref="chartRef"></canvas>
     </div>
-    <p>Total votes: {{ totalVotes }}</p>
+    <div>
+      Total votes: <span data-testid="total-votes">{{ totalVotes }}</span>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
