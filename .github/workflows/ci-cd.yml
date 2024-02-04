@@ -34,19 +34,31 @@ jobs:
 #            name: playwright-report
 #            path: playwright-report/
 #            retention-days: 30
+
+        # Upload the dist folder as an artifact for the next job
+        - uses: actions/upload-artifact@v3
+          with:
+            name: build-artifact
+            path: dist/
+
+
   deploy:
     needs: build-and-test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 18
+
+      # Download the build artifact produced by the build job
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-artifact
+          path: dist/
 
       - name: Install gh-pages
         run: npm install -g gh-pages
 
       - name: Deploy
-        run: npm run deploy
+        run: gh-pages -d dist
