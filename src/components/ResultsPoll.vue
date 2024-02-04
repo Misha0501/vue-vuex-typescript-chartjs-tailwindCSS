@@ -1,6 +1,9 @@
 <template>
   <div class="flex flex-col justify-between">
-    <canvas ref="chartRef"></canvas>
+    <div>
+      <p v-if="isValidPoll" class="break-all mb-3">{{ question }}</p>
+      <canvas ref="chartRef"></canvas>
+    </div>
     <p>Total votes: {{ totalVotes }}</p>
   </div>
 </template>
@@ -15,6 +18,8 @@ const chartRef = ref<HTMLCanvasElement | null>(null)
 const myChart = shallowRef<Chart | null>(null)
 const store = useStore()
 const totalVotes = computed(() => store.getters.totalVotes)
+const question = computed(() => store.state.question)
+const isValidPoll = computed(() => store.getters.isValidPoll)
 
 // Initialize an array to store colors persistently
 const backgroundColors = []

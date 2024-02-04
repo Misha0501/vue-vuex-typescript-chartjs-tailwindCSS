@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center">
-    <div v-if="question && answers.length >= 2" class="w-full h-full flex flex-col">
+    <div v-if="isValidPoll" class="w-full h-full flex flex-col">
       <h2 class="text-2xl mb-4 break-all">{{ question }}</h2>
       <form @submit.prevent="submitVote" class="h-full flex flex-col justify-between">
         <div>
@@ -31,6 +31,7 @@ import { State } from '@/store'
 
 const store = useStore<State>()
 const selectedAnswer = ref<string>('')
+const isValidPoll = computed(() => store.getters.isValidPoll)
 
 const question = computed(() => store.state.question)
 const answers = computed(() => store.state.answers)

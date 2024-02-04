@@ -18,6 +18,9 @@ export default createStore<State>({
   getters: {
     totalVotes(state) {
       return state.answers.reduce((acc, answer) => acc + answer.votes, 0)
+    },
+    isValidPoll(state) {
+        return state.question.length > 0 && state.answers.length >= 2
     }
   },
   mutations: {
