@@ -12,7 +12,7 @@
               v-model="selectedAnswer"
               class="mr-2"
             />
-            <label :for="answer.text">{{ answer.text }}</label>
+            <label :for="answer.text" class="break-all">{{ answer.text }}</label>
           </div>
         </div>
         <button type="submit" class="bg-blue-500 text-white py-2 px-8 mt-4">Vote</button>
