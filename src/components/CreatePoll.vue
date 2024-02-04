@@ -1,8 +1,8 @@
 <template>
-  <div class="p-4 flex flex-col w-full">
+  <div class="flex flex-col">
     <!-- Input for the question -->
     <input
-      v-model="question"
+      v-model.trim="question"
       placeholder="Type the question here"
       :maxlength="INPUT_LIMIT"
       class="border border-black p-2 mb-4"
@@ -11,7 +11,7 @@
       <!-- Previous answers -->
       <div v-for="(answer, index) in answers" :key="index" class="flex gap-2 items-center">
         <input
-          v-model="answer.text"
+          v-model.trim="answer.text"
           @input="updateAnswer(index, $event.target.value)"
           class="border border-black p-2 flex-1"
           :maxlength="INPUT_LIMIT"
@@ -23,7 +23,7 @@
       <!-- Input for new answer -->
       <div class="flex gap-2">
         <input
-          v-model="answer"
+          v-model.trim="answer"
           placeholder="Type the answer here"
           class="border border-black p-2"
           :maxlength="INPUT_LIMIT"
@@ -61,11 +61,6 @@ const handleAddAnswer = () => {
 
   store.commit('addAnswer', answer.value)
   answer.value = '' // Clear input after adding
-}
-
-// Function to update an answer
-const updateAnswer = (index: number, newText: string) => {
-  store.commit('updateAnswer', { index, newText })
 }
 
 // Function to reset question and answers

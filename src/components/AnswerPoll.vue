@@ -1,11 +1,19 @@
 <template>
-  <div class="w-full flex flex-col items-center">
-    <div v-if="question && answers.length >= 2">
-      <h2 class="text-2xl mb-4">{{ question }}</h2>
-      <form @submit.prevent="submitVote">
-        <div v-for="answer in answers" :key="answer.text">
-          <input type="radio" :id="answer.text" :value="answer.text" v-model="selectedAnswer" />
-          <label :for="answer.text">{{ answer.text }}</label>
+  <div class="flex flex-col items-center">
+    <div v-if="question && answers.length >= 2" class="w-full h-full flex flex-col">
+      <h2 class="text-2xl mb-4 break-all">{{ question }}</h2>
+      <form @submit.prevent="submitVote" class="h-full flex flex-col justify-between">
+        <div>
+          <div v-for="answer in answers" :key="answer.text">
+            <input
+              type="radio"
+              :id="answer.text"
+              :value="answer.text"
+              v-model="selectedAnswer"
+              class="mr-2"
+            />
+            <label :for="answer.text">{{ answer.text }}</label>
+          </div>
         </div>
         <button type="submit" class="bg-blue-500 text-white py-2 px-8 mt-4">Vote</button>
       </form>
