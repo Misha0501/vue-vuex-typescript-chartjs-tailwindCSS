@@ -27,7 +27,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useStore } from 'vuex'
-import { State } from '@/store'
+import { State } from '@/types'
 
 const store = useStore<State>()
 const selectedAnswer = ref<string>('')
