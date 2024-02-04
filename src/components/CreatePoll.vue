@@ -12,16 +12,16 @@
       <div v-for="(answer, index) in answers" :key="index" class="flex gap-2 items-center">
         <input
           v-model.trim="answer.text"
-          @input="updateAnswer(index, $event.target.value)"
           class="border border-black p-2 flex-1"
           :maxlength="INPUT_LIMIT"
+          data-testid="answer-input"
         />
         <button class="bg-red-500 text-white py-2 px-4" @click="removeAnswer(answer.text)">
           Remove
         </button>
       </div>
       <!-- Input for new answer -->
-      <div class="flex gap-2">
+      <div class="flex gap-2" v-if="answers.length < 10">
         <input
           v-model.trim="answer"
           placeholder="Type the answer here"
