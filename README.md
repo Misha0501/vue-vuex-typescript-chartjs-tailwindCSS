@@ -1,4 +1,9 @@
 # Poll application 
+This application was developed using Vue.js 3, leveraging the Composition API for its structure. For managing application state, Vuex served as the primary tool. Styling was developed with Tailwind CSS. End-to-end testing across various browsers was made using the Playwright testing framework. Charts was built using Chart.js.
+
+The deployment of the application was carried out on GitHub Pages.
+
+Please note, my objective was to complete this project within a maximum timeframe of 4-5 hours. While there was potential for further sophistication, the constraints of the allotted time led to the current implementation.
 
 ## Project Setup
 
