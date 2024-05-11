@@ -1,49 +1,80 @@
-# Poll application 
-This application was developed using Vue.js 3, leveraging the Composition API for its structure. For managing application state, Vuex served as the primary tool. Styling was developed with Tailwind CSS. End-to-end testing across various browsers was made using the Playwright testing framework. Charts was built using Chart.js.
+# Poll Application
 
-The deployment of the application was carried out on GitHub Pages.
+## Overview
+This front-end project demonstrates the ability to build a fully functional, real-time polling application within a 6-hour window, showcasing advanced Vue.js and Vuex capabilities. Designed as a single-page application, it features dynamic interaction and state management without relying on backend services.
 
-Please note, my objective was to complete this project within a maximum timeframe of 4-5 hours. While there was potential for further sophistication, the constraints of the allotted time led to the current implementation.
+[Live Demo](https://misha0501.github.io/poll/).
 
-## Project Setup
+## Features
+- **Dynamic Poll Management**: Create polls with customizable options and manage them in real-time.
+- **Instant Feedback**: Cast votes and see results updated live through an interactive chart.
+- **Sophisticated State Handling**: Application state managed robustly with Vuex for seamless user experiences.
+- **Adaptive Charting**: Automatically adjusting charts from Chart.js to visualize poll results effectively.
 
-```sh
+## Technology Stack
+- **Vue.js 3**: Employs the Composition API for a clean and scalable architecture.
+- **Vuex**: Manages state across the application, ensuring reactivity and consistency.
+- **Tailwind CSS**: Provides utility-first CSS for rapid UI development without sacrificing design quality.
+- **Chart.js**: Delivers responsive, canvas-based charts for real-time data visualization.
+- **Playwright**: Facilitates comprehensive end-to-end testing across various browsers.
+
+## Getting Started
+
+### Prerequisites
+Ensure you have Node.js and npm installed to handle dependencies and run the project.
+
+### Installation
+Clone the repository and install the dependencies:
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
+## Development
+Run the application in development mode with hot-reload at localhost:
+```bash
 npm run dev
 ```
 
-### Build for Production
-
-```sh
+## Production Build
+Compile and minify for production:
+```bash
 npm run build
 ```
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+## Testing
+Execute end-to-end tests using Playwright:
 
-```sh
-# Install browsers for the first run
+### Install necessary browsers
+```bash
+# Install necessary browsers
 npx playwright install
 
-# When testing on CI, must build the project first
-npm run build
-
-# Runs the end-to-end tests
+# Run end-to-end tests
 npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
+
+# For specific environments or debug purposes
+npm run test:e2e -- --project=chromium --debug
 ```
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
+## Linting
+Maintain code quality with ESLint:
+```bash
 npm run lint
 ```
+
+## Deployment
+This application is hosted on GitHub Pages, allowing you to access and evaluate the live version:
+[Live Demo](https://misha0501.github.io/poll/). 
+
+## Project Scope
+Under tight deadlines, priority was given to core functionalities, including state management and real-time interactions, over extensive UX/UI design.
+
+## Future Directions
++ Enhanced User Interface: Further improve interactivity and visual appeal.
++ Performance Optimization: Optimize performance as the scale of interactions grows.
++ More Robust Testing: Expand testing scenarios to cover more user interactions.
+Contributing
+Your contributions are welcomed! Please refer to CONTRIBUTING.md for how to help improve this project.
+
+## License
+This project is open-sourced under the MIT License.
