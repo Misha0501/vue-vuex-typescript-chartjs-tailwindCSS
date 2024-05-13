@@ -15,5 +15,5 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  base: process.env.NODE_ENV === "production" ? "/poll/" : "/",
+  base: process.env.NODE_ENV === "production" ? "/vue-vuex-typescript-chartjs-tailwindCSS/" : "/",
 })
