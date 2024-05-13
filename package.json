@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "homepage": "https://misha0501.github.io/poll/",
+  "homepage": "https://misha0501.github.io/vue-vuex-typescript-chartjs-tailwindCSS/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
