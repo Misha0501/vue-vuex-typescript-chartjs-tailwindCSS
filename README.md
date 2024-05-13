@@ -3,7 +3,7 @@
 ## Overview
 This front-end project demonstrates the ability to build a fully functional, real-time polling application within a 6-hour window, showcasing advanced Vue.js and Vuex capabilities. Designed as a single-page application, it features dynamic interaction and state management without relying on backend services.
 
-[Live Demo](https://misha0501.github.io/poll/).
+[Live Demo](https://misha0501.github.io/vue-vuex-typescript-chartjs-tailwindCSS/).
 
 ## Features
 - **Dynamic Poll Management**: Create polls with customizable options and manage them in real-time.
@@ -64,7 +64,7 @@ npm run lint
 
 ## Deployment
 This application is hosted on GitHub Pages, allowing you to access and evaluate the live version:
-[Live Demo](https://misha0501.github.io/poll/). 
+[Live Demo](https://misha0501.github.io/vue-vuex-typescript-chartjs-tailwindCSS/). 
 
 ## Project Scope
 Under tight deadlines, priority was given to core functionalities, including state management and real-time interactions, over extensive UX/UI design.
